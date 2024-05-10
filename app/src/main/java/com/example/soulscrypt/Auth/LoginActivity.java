@@ -113,10 +113,13 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(response);
 
                 if (jsonObject.getBoolean("success")) {
+                    JSONObject userObject = jsonObject.getJSONObject("user");
 
                     SharedPreferences userPref = this.getApplicationContext().getSharedPreferences("user", MODE_PRIVATE);
                     SharedPreferences.Editor editor = userPref.edit();
                     editor.putBoolean("isLoggedIn", true);
+                    editor.putString("user_id", userObject.getString("id"));
+
                     editor.apply();
 
 

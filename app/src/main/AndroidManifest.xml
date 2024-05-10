@@ -22,7 +22,9 @@
         <activity
             android:name=".HomeActivity"
             android:theme="@style/Theme.SoulsCrypt"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTop"
+            />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
