@@ -8,12 +8,16 @@ public class RelativeModel {
     private double latitude;
     private double longitude;
 
-    public RelativeModel(String relative_name, String relative_death_date, String relative_section, double latitude, double longitude) {
+    private int record_id;
+
+    public RelativeModel(String relative_name, String relative_death_date, String relative_section, double latitude, double longitude, int record_id) {
         this.relative_name = relative_name;
         this.relative_death_date = relative_death_date;
         this.relative_section = relative_section;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.record_id = record_id;
+
     }
 
     public String getRelative_name() {
@@ -54,5 +58,13 @@ public class RelativeModel {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public int getRecord_id() {
+        return record_id;
+    }
+
+    public void setRecord_id(int record_id) {
+        this.record_id = record_id;
     }
 }

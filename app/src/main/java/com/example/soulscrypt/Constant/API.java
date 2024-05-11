@@ -10,6 +10,7 @@ public class API {
     public static String register_api = API + "mobile/register";
 
     public static String relative_list_api = API + "mobile/relatives";
+    public static String relative_details_api = API + "mobile/relatives/details";
 
 
 }

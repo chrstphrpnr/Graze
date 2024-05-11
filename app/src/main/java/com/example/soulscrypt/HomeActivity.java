@@ -115,6 +115,11 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+
+                } else if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+
+                    finishAffinity();
+
                 }
 
             }
@@ -251,8 +256,9 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                             String relative_section = relativeObject.getString("section");
                             double section_latitude = relativeObject.getDouble("latitude");
                             double section_longitude = relativeObject.getDouble("longtitude");
+                            int record_id = relativeObject.getInt("record_id");
 
-                            RelativeModel relativeModel = new RelativeModel(relative_name, relative_death_date, relative_section, section_latitude, section_longitude);
+                            RelativeModel relativeModel = new RelativeModel(relative_name, relative_death_date, relative_section, section_latitude, section_longitude, record_id);
                             relativeModelArrayList.add(relativeModel);
                         }
                         relativeAdapter.notifyDataSetChanged();

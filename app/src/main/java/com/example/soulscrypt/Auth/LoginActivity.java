@@ -119,7 +119,6 @@ public class LoginActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = userPref.edit();
                     editor.putBoolean("isLoggedIn", true);
                     editor.putString("user_id", userObject.getString("id"));
-
                     editor.apply();
 
 
