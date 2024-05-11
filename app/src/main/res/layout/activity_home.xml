@@ -25,16 +25,18 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_alignParentEnd="true"
                 android:id="@+id/btnSettings"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/ic_settings"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@drawable/shape_circle_white"
                 android:padding="@dimen/_4sdp"
-
-                />
+                android:src="@drawable/ic_settings" />
 
 
             <ImageView
@@ -52,20 +54,20 @@
                 />
 
 
-<!--            <ImageView-->
-<!--                android:id="@+id/btnReport"-->
-<!--                android:layout_width="@dimen/_30sdp"-->
-<!--                android:layout_height="@dimen/_30sdp"-->
-<!--                android:layout_marginStart="@dimen/_10sdp"-->
-<!--                android:layout_marginTop="@dimen/_10sdp"-->
-<!--                android:layout_marginEnd="@dimen/_10sdp"-->
-<!--                android:layout_marginBottom="@dimen/_10sdp"-->
-<!--                android:background="@drawable/shape_circle_white"-->
-<!--                android:layout_alignParentEnd="true"-->
-<!--                android:layout_below="@+id/btnNotification"-->
-<!--                android:src="@drawable/ic_report"-->
-<!--                android:padding="@dimen/_4sdp"-->
-<!--                />-->
+            <ImageView
+                android:id="@+id/btnReport"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/shape_circle_white"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/btnNotification"
+                android:src="@drawable/ic_report"
+                android:padding="@dimen/_4sdp"
+                />
 
 
         </RelativeLayout>
@@ -183,50 +185,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
                         />
-
-
-
-
-                    <TextView
-                        android:id="@+id/txtReportsTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Reports"
-                        android:layout_marginTop="@dimen/_30sdp"
-                        android:textSize="@dimen/_15sdp"
-                        android:textStyle="bold"
-                        />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/currentReportList"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="@dimen/_2sdp"
-                        />
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="#1AB111"
-                        >
-
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SUBMIT REPORT"
-                            android:layout_centerInParent="true"
-                            android:textSize="@dimen/_10sdp"
-                            android:textColor="@color/white"
-                            android:textStyle="bold"
-                            />
-
-
-
-                    </RelativeLayout>
 
 
                 </LinearLayout>

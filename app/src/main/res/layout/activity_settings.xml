@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/notificationTaskbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/transparent"
+            android:layout_marginTop="@dimen/_10sdp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/btnSettingsBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_arrow_left"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_13sdp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:layout_toRightOf="@+id/btnSettingsBack"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/_20sdp"
+                    android:textColor="@color/main_color"
+                    android:textStyle="bold"
+                    />
+
+
+            </RelativeLayout>
+
+
+
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/profileLayout"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent"
+            android:background="@color/main_color"
+            android:padding="@dimen/_10sdp"
+            android:layout_below="@+id/notificationTaskbar"
+            >
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgProfilePicture"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:elevation="@dimen/_40sdp"
+                android:layout_centerHorizontal="true"
+                android:shape="ring"
+                android:thicknessRatio="2"
+                app:cardCornerRadius="100dp"
+                android:background="#566159"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:padding="@dimen/_2sdp"
+                    />
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profileLayout"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
+            >
+
+            <TextView
+                android:id="@+id/txtNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="#272727"
+                />
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_below="@+id/txtNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textStyle="bold"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="#848484"
+                />
+
+
+            <TextView
+                android:id="@+id/txtAddressTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="#272727"
+                android:layout_below="@+id/txtName"
+                android:layout_marginTop="@dimen/_20sdp"
+                />
+
+            <TextView
+                android:id="@+id/txtAddress"
+                android:layout_below="@+id/txtAddressTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textStyle="bold"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="#848484"
+                />
+
+
+            <TextView
+                android:id="@+id/txtPhoneTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="#272727"
+                android:layout_below="@+id/txtAddress"
+                android:layout_marginTop="@dimen/_20sdp"
+                />
+
+            <TextView
+                android:id="@+id/txtPhone"
+                android:layout_below="@+id/txtPhoneTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textStyle="bold"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="#848484"
+                />
+
+
+            <TextView
+                android:id="@+id/txtEmailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="#272727"
+                android:layout_below="@+id/txtPhone"
+                android:layout_marginTop="@dimen/_20sdp"
+                />
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_below="@+id/txtEmailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textStyle="bold"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="#848484"
+                />
+
+
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+</ScrollView>

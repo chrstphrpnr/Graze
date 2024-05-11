@@ -2,4 +2,8 @@
     <string name="app_name">SoulsCrypt</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="choose_service_prompt">Choose Service</string>
+
 </resources>
