@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.soulscrypt.Auth.LoginActivity;
 import com.example.soulscrypt.Constant.API;
 import com.example.soulscrypt.RelativeList.RelativeDetails;
 import com.squareup.picasso.Callback;
@@ -47,8 +49,11 @@ public class Settings extends AppCompatActivity {
     TextView txtName, txtAddress, txtPhone, txtEmail;
     RequestQueue queue;
 
-    ImageView profile_image;
+    ImageView profile_image, btnSettingsBack;
     private static final int PICK_IMAGE_REQUEST = 1;
+
+
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,8 @@ public class Settings extends AppCompatActivity {
         txtPhone = findViewById(R.id.txtPhone);
         txtEmail = findViewById(R.id.txtEmail);
         profile_image = findViewById(R.id.profile_image);
+        btnSettingsBack = findViewById(R.id.btnSettingsBack);
+        btnLogin = findViewById(R.id.btnLogin);
 
         SharedPreferences userPref = getApplicationContext().getSharedPreferences("user", MODE_PRIVATE);
         user_primary_id = userPref.getString("user_id", "0"); // 0 is default value if key not found
@@ -75,6 +82,21 @@ public class Settings extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST);
+            }
+        });
+
+        btnSettingsBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAffinity();
+                startActivity(new Intent(Settings.this, LoginActivity.class));
             }
         });
 
@@ -262,14 +284,26 @@ public class Settings extends AppCompatActivity {
                                 progressDialog.dismiss();
                             }
                             // Handle error scenario, perhaps set an error image
-                            profile_image.setImageResource(R.drawable.ic_profile);
+
+                            // Use Cloudinary URL as placeholder
+                            Picasso.get()
+                                    .load("https://res.cloudinary.com/di37ekwjq/image/upload/f_auto,q_auto/ixt6byinrworno3ytzbe")
+                                    .noFade()
+                                    .into(profile_image);
+
+
                         }
                     });
         } else {
             if (progressDialog.isShowing()) {
                 progressDialog.dismiss(); // Ensure dialog is dismissed if there's no URL
             }
-            profile_image.setImageResource(R.drawable.ic_profile); // Your default or placeholder image
+
+            // Use Cloudinary URL as placeholder
+            Picasso.get()
+                    .load("https://res.cloudinary.com/di37ekwjq/image/upload/f_auto,q_auto/ixt6byinrworno3ytzbe")
+                    .noFade()
+                    .into(profile_image);
         }
     }
 

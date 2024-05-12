@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -30,6 +32,8 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -41,6 +45,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.soulscrypt.Auth.LoginActivity;
 import com.example.soulscrypt.Constant.API;
+import com.example.soulscrypt.NotificationPackages.NotificationService;
 import com.example.soulscrypt.RelativeList.RelativeAdapter;
 import com.example.soulscrypt.RelativeList.RelativeModel;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -55,6 +60,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
@@ -85,11 +91,36 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap googleMap;
 
     private ImageView btnSettings, btnNotification, btnReport;
+    private Marker currentMarker = null;
+
+     RelativeLayout btnAddRelatives;
+
+    private ImageView notificationIndicator;
+
+    private BroadcastReceiver newNotificationReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Update the visibility of the notification indicator
+            notificationIndicator.setVisibility(View.VISIBLE);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        startService(new Intent(HomeActivity.this, NotificationService.class));
+
+        // Initialize notification indicator
+        notificationIndicator = findViewById(R.id.notification_indicator);
+
+        // Register the broadcast receiver
+        IntentFilter filter = new IntentFilter("com.example.soulscrypt.NEW_NOTIFICATION");
+        registerReceiver(newNotificationReceiver, filter);
+
+
+        btnAddRelatives = findViewById(R.id.btnAddRelatives);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map_fragment);
@@ -171,6 +202,14 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, Report.class));
 
+            }
+        });
+
+
+        btnAddRelatives.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, AddRelative.class));
             }
         });
 
@@ -263,6 +302,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onDestroy() {
         super.onDestroy();
         fusedLocationClient.removeLocationUpdates(locationCallback);
+        unregisterReceiver(newNotificationReceiver);
+
     }
 
     private String formatDate(String date) {
@@ -279,21 +320,25 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
     private void populateRelativeList() {
+
         relativeAdapter = new RelativeAdapter(this, relativeModelArrayList);
         relativeAdapter.setOnItemClickListener(new RelativeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(double latitude, double longitude) {
+                // Remove the previous marker if it exists
+                if (currentMarker != null) {
+                    currentMarker.remove();
+                }
+
                 // Move the map camera to the clicked location
                 LatLng location = new LatLng(latitude, longitude);
                 googleMap.setPadding(0, 0, 0, 0);
-
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 19f));
 
                 // Add a marker at the clicked location with the custom marker icon
-                googleMap.addMarker(new MarkerOptions()
+                currentMarker = googleMap.addMarker(new MarkerOptions()
                         .position(location)
                         .icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_relative_marker, 60)));
-
 
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
@@ -319,7 +364,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                             String relative_section = relativeObject.getString("section");
                             double section_latitude = relativeObject.getDouble("latitude");
-                            double section_longitude = relativeObject.getDouble("longtitude");
+                            double section_longitude = relativeObject.getDouble("longitude");
                             int record_id = relativeObject.getInt("record_id");
 
                             RelativeModel relativeModel = new RelativeModel(relative_name, relative_death_date, relative_section, section_latitude, section_longitude, record_id);
@@ -375,6 +420,9 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         vectorDrawable.draw(canvas);
         return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
+
+
+
 
 }
 

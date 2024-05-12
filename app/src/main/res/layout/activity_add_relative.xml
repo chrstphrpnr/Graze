@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRelative">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/notificationTaskbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/transparent"
+            android:layout_marginTop="@dimen/_10sdp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/btnNotificationBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_arrow_left"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_13sdp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Relative"
+                    android:layout_toRightOf="@+id/btnNotificationBack"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/_20sdp"
+                    android:textColor="@color/main_color"
+                    android:textStyle="bold"
+                    />
+
+
+            </RelativeLayout>
+
+
+
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_below="@+id/notificationTaskbar"
+            android:layout_marginTop="@dimen/_30sdp"
+
+            >
+
+            <TextView
+                android:id="@+id/relativeNameRequestTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Relative's Name"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:textColor="#494949"
+
+                />
+
+            <TextView
+                android:id="@+id/relativeNameRequestSubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please Type Your Relative's Name "
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:layout_below="@+id/relativeNameRequestTitle"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="#797979"
+                />
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:hint="Search for relatives"
+                android:inputType="textAutoComplete|textAutoCorrect"
+                android:textColorHint="#4D4D4D"
+                android:layout_below="@+id/relativeNameRequestSubTitle"
+                android:padding="8dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/auto_hint_field"
+                android:textSize="@dimen/_10sdp"
+                />
+
+
+            <TextView
+                android:id="@+id/relativeDateOfDeathTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date of Death"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:textColor="#494949"
+                android:layout_below="@+id/autoCompleteTextView"
+                android:layout_marginTop="@dimen/_20sdp"
+                />
+
+            <TextView
+                android:id="@+id/relativeDateOfDeathTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:layout_below="@+id/relativeDateOfDeathTitle"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="#797979"
+                />
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSubmitRelative"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_below="@id/relativeDateOfDeathTv"
+                android:background="@drawable/rectangle"
+                android:layout_centerHorizontal="true"
+                android:text="Submit"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_50sdp"
+                />
+
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</ScrollView>
