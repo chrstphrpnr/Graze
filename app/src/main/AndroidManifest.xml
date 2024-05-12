@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".NotificationPackages.NotificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddRelative"
             android:exported="false" />
         <activity
@@ -64,12 +67,9 @@
             android:name=".Auth.LoginActivity"
             android:exported="false" />
 
-
         <service
             android:name=".NotificationPackages.NotificationService"
             android:stopWithTask="false" />
-
-
     </application>
 
 </manifest>

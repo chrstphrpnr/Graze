@@ -23,6 +23,10 @@ public class API {
     public static String submit_service_request = API + "mobile/service/request";
 
     public static String check_new_notification = API + "mobile/user/notifications";
+    public static String get_notification = API + "mobile/user/show_all/notifications";
+
+
+    public static String mark_all_as_read = API + "mobile/user/mark_as_read/notifications";
 
 
 

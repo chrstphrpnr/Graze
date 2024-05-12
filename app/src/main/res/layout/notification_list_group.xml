@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/notificationItem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        app:cardBackgroundColor="#EDEDED"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginVertical="@dimen/_7sdp"
+
+        >
+
+        <FrameLayout
+            android:id="@+id/borderLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_2sdp"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_5sdp"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/iconContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:id="@+id/notificationTimeStamp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="2024-02-02 15:08"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_5sdp"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/notificationIcon"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:src="@drawable/ic_notification_black"
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/notificationIcon"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        >
+
+
+
+
+                        <TextView
+                            android:id="@+id/txtNotificationTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_11sdp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/notificationContext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtNotificationTitle"
+                            android:layout_marginRight="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:gravity="left"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_8sdp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            />
+
+
+                    </RelativeLayout>
+
+
+
+
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+
+        </FrameLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</RelativeLayout>

@@ -45,6 +45,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.soulscrypt.Auth.LoginActivity;
 import com.example.soulscrypt.Constant.API;
+import com.example.soulscrypt.NotificationPackages.NotificationActivity;
 import com.example.soulscrypt.NotificationPackages.NotificationService;
 import com.example.soulscrypt.RelativeList.RelativeAdapter;
 import com.example.soulscrypt.RelativeList.RelativeModel;
@@ -191,7 +192,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, Notification.class));
+                startActivity(new Intent(HomeActivity.this, NotificationActivity.class));
 
             }
         });
