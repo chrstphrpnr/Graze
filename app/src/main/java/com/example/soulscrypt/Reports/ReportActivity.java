@@ -1,10 +1,12 @@
-package com.example.soulscrypt;
+package com.example.soulscrypt.Reports;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Report extends AppCompatActivity {
+import com.example.soulscrypt.R;
+
+public class ReportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

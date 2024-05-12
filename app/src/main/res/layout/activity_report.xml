@@ -1,9 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Report">
+    tools:context=".Reports.ReportActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/notificationTaskbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/transparent"
+            android:layout_marginTop="@dimen/_10sdp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/btnReportBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_arrow_left"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_13sdp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Incident Report"
+                    android:layout_toRightOf="@+id/btnReportBack"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/_20sdp"
+                    android:textColor="@color/main_color"
+                    android:textStyle="bold"
+                    />
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/notificationTaskbar"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:paddingHorizontal="@dimen/_25sdp"
+            >
+
+            <TextView
+                android:id="@+id/txtIncidentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incident Title"
+                android:textStyle="bold"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutTextIncidentTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtIncidentTitle"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:boxStrokeWidth="1dp"
+                android:theme="@style/TextInputLayoutStyle"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtInputIncidentTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Incident Title"
+                    android:textColorHint="@color/white"
+                    android:textColor="#FFFFFF"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/txtIncidentDescTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incident Description"
+                android:textStyle="bold"
+                android:layout_below="@+id/layoutTextIncidentTitle"
+                android:layout_marginTop="@dimen/_15sdp"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutTextIncidentDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtIncidentDescTitle"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:boxStrokeWidth="1dp"
+                android:theme="@style/TextInputLayoutStyle"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtInputIncidentDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Description"
+                    android:textColorHint="@color/white"
+                    android:textColor="#FFFFFF"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txtIncidentLocationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Incident Location"
+                android:textStyle="bold"
+                android:layout_below="@+id/layoutTextIncidentDesc"
+                android:layout_marginTop="@dimen/_15sdp"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerLocation"
+                android:layout_below="@+id/txtIncidentLocationTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:paddingHorizontal="@dimen/_5sdp"
+                />
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_below="@id/spinnerLocation"
+                android:background="@drawable/rectangle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="Submit"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                />
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

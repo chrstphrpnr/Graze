@@ -49,6 +49,7 @@ import com.example.soulscrypt.NotificationPackages.NotificationActivity;
 import com.example.soulscrypt.NotificationPackages.NotificationService;
 import com.example.soulscrypt.RelativeList.RelativeAdapter;
 import com.example.soulscrypt.RelativeList.RelativeModel;
+import com.example.soulscrypt.Reports.ReportActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -201,7 +202,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, Report.class));
+                startActivity(new Intent(HomeActivity.this, ReportActivity.class));
 
             }
         });
