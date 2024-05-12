@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".RelativeList.RelativeDetails">
 
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -54,11 +56,10 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <RelativeLayout
-            android:id="@+id/relativeDetailsLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_below="@+id/notificationTaskbar"
             >
 
@@ -69,136 +70,22 @@
                 >
 
                 <TextView
-                    android:id="@+id/relativeDetailsName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name"
                     android:layout_centerVertical="true"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_15sdp"
                     android:textColor="#525252"
                     android:textStyle="bold"
                     />
 
-                <TextView
-                    android:id="@+id/relativeDetailsBirth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Birthdate"
-                    android:layout_centerVertical="true"
-                    android:textSize="@dimen/_10sdp"
-                    android:textColor="#525252"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
 
-
-                <TextView
-                    android:id="@+id/relativeDetailsDeath"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Death"
-                    android:layout_centerVertical="true"
-                    android:textSize="@dimen/_10sdp"
-                    android:textColor="#525252"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
-
-                <TextView
-                    android:id="@+id/relativeDetailsExhumation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Exhumation"
-                    android:layout_centerVertical="true"
-                    android:textSize="@dimen/_10sdp"
-                    android:textColor="#525252"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
-
-
-                <TextView
-                    android:id="@+id/relativeDetailsSection"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Section"
-                    android:layout_centerVertical="true"
-                    android:textSize="@dimen/_10sdp"
-                    android:textColor="#525252"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
-
-                <TextView
-                    android:id="@+id/relativeDetailsLotNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lot Number"
-                    android:layout_centerVertical="true"
-                    android:textSize="@dimen/_10sdp"
-                    android:textColor="#525252"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    />
 
             </LinearLayout>
 
 
 
-
-
         </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/requestServiceLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/relativeDetailsLayout"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            >
-
-
-            <TextView
-                android:id="@+id/txtRequestTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Request Service"
-                android:textSize="@dimen/_15sdp"
-                android:textStyle="bold"
-                />
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_below="@+id/txtRequestTitle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:paddingHorizontal="@dimen/_5sdp"
-                />
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnRequestService"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_30sdp"
-                android:background="@drawable/rectangle"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/_30sdp"
-                android:layout_marginTop="@dimen/_35sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_below="@+id/spinner"
-                android:text="Request Service"
-                android:textSize="@dimen/_10sdp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                />
-
-
-        </RelativeLayout>
-
 
 
 

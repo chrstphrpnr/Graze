@@ -100,9 +100,7 @@ public class RelativeAdapter extends RecyclerView.Adapter<RelativeAdapter.ViewHo
 
                                    Intent intent = new Intent(context, RelativeDetails.class);
 
-                                    intent.putExtra("record_id", record_id);
-
-                                    intent.putExtra("relative_name", relative_name);
+                                   intent.putExtra("relative_name", relative_name);
                                     intent.putExtra("birth_date", birth_date);
                                     intent.putExtra("death_date", death_date);
                                     intent.putExtra("exhumation_date", exhumation_date);
