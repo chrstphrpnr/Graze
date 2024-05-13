@@ -74,7 +74,6 @@
                 android:layout_below="@id/txtIncidentTitle"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:boxStrokeWidth="1dp"
-                android:theme="@style/TextInputLayoutStyle"
 
                 >
 
@@ -83,8 +82,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Incident Title"
-                    android:textColorHint="@color/white"
-                    android:textColor="#FFFFFF"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
 
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -107,7 +106,6 @@
                 android:layout_below="@id/txtIncidentDescTitle"
                 android:layout_marginTop="@dimen/_5sdp"
                 app:boxStrokeWidth="1dp"
-                android:theme="@style/TextInputLayoutStyle"
 
                 >
 
@@ -116,8 +114,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Description"
-                    android:textColorHint="@color/white"
-                    android:textColor="#FFFFFF"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
 
                     />
             </com.google.android.material.textfield.TextInputLayout>
@@ -144,7 +142,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnSubmit"
+                android:id="@+id/btnSubmitIncident"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_below="@id/spinnerLocation"

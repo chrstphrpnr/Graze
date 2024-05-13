@@ -2,7 +2,7 @@ package com.example.soulscrypt.Constant;
 
 public class API {
 
-    public static String URL = "http://192.168.169.224:8000/";
+    public static String URL = "http://192.168.0.102:8000/";
     public static String API = URL + "api/";
 
     // Auth and Profiles
@@ -28,6 +28,8 @@ public class API {
 
     public static String mark_all_as_read = API + "mobile/user/mark_as_read/notifications";
 
+    public static String fetch_sections = API + "mobile/show/sections";
+    public static String submit_incident_report = API + "mobile/submit/incidents";
 
 
 }
