@@ -104,6 +104,21 @@
                 />
 
 
+            <ImageView
+                android:id="@+id/btnOpenAR"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/shape_circle_white"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/btnReport"
+                android:src="@drawable/ic_ar"
+                android:padding="@dimen/_4sdp"
+                />
+
+
         </RelativeLayout>
 
     </RelativeLayout>

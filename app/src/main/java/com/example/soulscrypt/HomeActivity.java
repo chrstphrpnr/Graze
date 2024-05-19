@@ -34,6 +34,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -95,7 +96,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LocationCallback locationCallback;
     private GoogleMap googleMap;
 
-    private ImageView btnSettings, btnNotification, btnReport;
+    private ImageView btnSettings, btnNotification, btnReport, btnOpenAR;
     private Marker currentMarker = null;
 
      RelativeLayout btnAddRelatives;
@@ -183,7 +184,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnSettings = findViewById(R.id.btnSettings);
         btnNotification = findViewById(R.id.btnNotification);
         btnReport = findViewById(R.id.btnReport);
-
+        btnOpenAR = findViewById(R.id.btnOpenAR);
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -218,6 +219,14 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, AddRelative.class));
+            }
+        });
+
+
+        btnOpenAR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "AR", Toast.LENGTH_SHORT).show();
             }
         });
 
