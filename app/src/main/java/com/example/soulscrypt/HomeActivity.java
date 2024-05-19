@@ -197,10 +197,10 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(HomeActivity.this, NotificationActivity.class));
+                startActivity(new Intent(HomeActivity.this, NotificationActivity.class));
 
 
-                startActivity(new Intent(HomeActivity.this, UnityPlayerActivity.class));
+//                startActivity(new Intent(HomeActivity.this, UnityPlayerActivity.class));
 
             }
         });
