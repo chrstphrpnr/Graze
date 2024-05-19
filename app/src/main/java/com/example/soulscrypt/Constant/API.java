@@ -2,7 +2,7 @@ package com.example.soulscrypt.Constant;
 
 public class API {
 
-    public static String URL = "http://192.168.0.102:8000/";
+    public static String URL = "https://soulscrypt.cloud/";
     public static String API = URL + "api/";
 
     // Auth and Profiles

@@ -68,7 +68,8 @@ public class RelativeAdapter extends RecyclerView.Adapter<RelativeAdapter.ViewHo
         RelativeModel model = relativeList.get(position);
         holder.relative_name.setText(model.getRelative_name());
         holder.relative_death_date.setText(model.getRelative_death_date());
-        holder.relative_section.setText(model.getRelative_section());
+//        holder.relative_section.setText(model.getRelative_section());
+        holder.relative_relationship.setText(model.getRelationship());
 
         // Inside your RelativeAdapter's onBindViewHolder method
         holder.btnDetails.setOnClickListener(new View.OnClickListener() {
@@ -169,13 +170,13 @@ public class RelativeAdapter extends RecyclerView.Adapter<RelativeAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView relative_name, relative_death_date, relative_section;
+        TextView relative_name, relative_death_date, relative_relationship;
         ImageView btnDetails;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             relative_name = itemView.findViewById(R.id.relativeNameTv);
             relative_death_date = itemView.findViewById(R.id.relativeDeathDateTv);
-            relative_section = itemView.findViewById(R.id.relativeSectionTv);
+            relative_relationship = itemView.findViewById(R.id.relativeRelationshipTv);
             btnDetails = itemView.findViewById(R.id.btnDetails);
 
             itemView.setOnClickListener(new View.OnClickListener() {

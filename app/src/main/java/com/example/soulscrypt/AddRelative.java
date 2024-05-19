@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +50,8 @@ public class AddRelative extends AppCompatActivity {
     String user_primary_id, record_id;
 
     Button btnSubmitRelative;
+
+    ImageView btnAddRelativeBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +63,7 @@ public class AddRelative extends AppCompatActivity {
         autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
         relativeDateOfDeathTv = findViewById(R.id.relativeDateOfDeathTv);
         btnSubmitRelative = findViewById(R.id.btnSubmitRelative);
+        btnAddRelativeBack = findViewById(R.id.btnAddRelativeBack);
 
 
         requestQueue = Volley.newRequestQueue(this);
@@ -139,6 +143,12 @@ public class AddRelative extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
 
+        btnAddRelativeBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btnSubmitRelative.setOnClickListener(new View.OnClickListener() {
             @Override

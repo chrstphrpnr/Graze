@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ public class ReportActivity extends AppCompatActivity {
 
     RequestQueue queue;
 
+    ImageView btnReportBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,16 @@ public class ReportActivity extends AppCompatActivity {
 
         incidentTitle = edtInputIncidentTitle.getText().toString();
         incidentDescription = edtInputIncidentDesc.getText().toString();
+
+        btnReportBack = findViewById(R.id.btnReportBack);
+
+
+        btnReportBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btnSubmitIncident.setOnClickListener(new View.OnClickListener() {
             @Override

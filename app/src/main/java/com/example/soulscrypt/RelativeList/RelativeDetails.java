@@ -44,7 +44,7 @@ public class RelativeDetails extends AppCompatActivity {
 
     private TextView relativeDetailsName, relativeDetailsBirth, relativeDetailsDeath, relativeDetailsExhumation, relativeDetailsSection, relativeDetailsLotNumber;
 
-    private ImageView btnNotificationBack;
+    private ImageView btnRelativeBack;
 
     private Button btnRequestService;
 
@@ -68,6 +68,7 @@ public class RelativeDetails extends AppCompatActivity {
         relativeDetailsLotNumber = findViewById(R.id.relativeDetailsLotNumber);
         btnRequestService = findViewById(R.id.btnRequestService);
         spinnerServices = findViewById(R.id.spinner);
+        btnRelativeBack = findViewById(R.id.btnRelativeBack);
 
         record_id = getIntent().getStringExtra("record_id");
         String relative_name = getIntent().getStringExtra("relative_name");
@@ -99,8 +100,8 @@ public class RelativeDetails extends AppCompatActivity {
         user_primary_id = userPref.getString("user_id", "0"); // 0 is default value if key not found
 
 
-        btnNotificationBack = findViewById(R.id.btnNotificationBack);
-        btnNotificationBack.setOnClickListener(new View.OnClickListener() {
+        btnRelativeBack = findViewById(R.id.btnRelativeBack);
+        btnRelativeBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

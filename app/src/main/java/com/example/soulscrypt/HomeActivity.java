@@ -119,7 +119,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Register the broadcast receiver
         IntentFilter filter = new IntentFilter("com.example.soulscrypt.NEW_NOTIFICATION");
-        registerReceiver(newNotificationReceiver, filter);
+        registerReceiver(newNotificationReceiver, filter, Context.RECEIVER_EXPORTED);
 
 
         btnAddRelatives = findViewById(R.id.btnAddRelatives);
@@ -369,7 +369,10 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                             double section_longitude = relativeObject.getDouble("longitude");
                             int record_id = relativeObject.getInt("record_id");
 
-                            RelativeModel relativeModel = new RelativeModel(relative_name, relative_death_date, relative_section, section_latitude, section_longitude, record_id);
+                            String relative_relationship = relativeObject.getString("relative_relationship");
+
+
+                            RelativeModel relativeModel = new RelativeModel(relative_name, relative_death_date, relative_section, section_latitude, section_longitude, record_id, relative_relationship);
                             relativeModelArrayList.add(relativeModel);
                         }
                         relativeAdapter.notifyDataSetChanged();
