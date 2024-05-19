@@ -162,6 +162,13 @@ public class RelativeAdapter extends RecyclerView.Adapter<RelativeAdapter.ViewHo
 
 
         });
+
+//        holder.btnOpenAR.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(context, "Test", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     @Override
@@ -178,6 +185,7 @@ public class RelativeAdapter extends RecyclerView.Adapter<RelativeAdapter.ViewHo
             relative_death_date = itemView.findViewById(R.id.relativeDeathDateTv);
             relative_relationship = itemView.findViewById(R.id.relativeRelationshipTv);
             btnDetails = itemView.findViewById(R.id.btnDetails);
+//            btnOpenAR = itemView.findViewById(R.id.btnOpenAR);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

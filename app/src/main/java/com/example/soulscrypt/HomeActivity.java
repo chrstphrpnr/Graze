@@ -78,6 +78,9 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+
+import com.unity3d.player.UnityPlayerActivity;
+
 public class HomeActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private BottomSheetBehavior bottomSheetBehavior;
@@ -193,7 +196,10 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, NotificationActivity.class));
+//                startActivity(new Intent(HomeActivity.this, NotificationActivity.class));
+
+
+                startActivity(new Intent(HomeActivity.this, UnityPlayerActivity.class));
 
             }
         });

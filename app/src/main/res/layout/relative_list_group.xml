@@ -62,6 +62,17 @@
             android:layout_marginTop="@dimen/_2sdp"
             />
 
+
+<!--        <ImageView-->
+<!--            android:layout_toStartOf="@+id/btnDetails"-->
+<!--            android:id="@+id/btnOpenAR"-->
+<!--            android:layout_width="@dimen/_20sdp"-->
+<!--            android:layout_height="@dimen/_20sdp"-->
+<!--            android:src="@drawable/navigate"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginRight="@dimen/_5sdp"-->
+<!--            />-->
+
         <ImageView
             android:id="@+id/btnDetails"
             android:layout_width="@dimen/_20sdp"

@@ -14,6 +14,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
     }
 
     buildTypes {
@@ -29,6 +31,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    ndkVersion = "21.3.6528147"
 }
 
 dependencies {
@@ -53,5 +56,8 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
 
     implementation ("com.squareup.picasso:picasso:2.8")
+
+    implementation(files("libs/unityLibrary-debug.aar"))
+
 
 }
