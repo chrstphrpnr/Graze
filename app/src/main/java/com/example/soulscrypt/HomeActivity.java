@@ -117,6 +117,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_home);
 
         startService(new Intent(HomeActivity.this, NotificationService.class));
+        startService(new Intent(HomeActivity.this, LocationService.class));
 
         // Initialize notification indicator
         notificationIndicator = findViewById(R.id.notification_indicator);
@@ -147,17 +148,26 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (locationResult == null) {
                     return;
                 }
+
+                // Remove the previous marker
+                if (currentMarker != null) {
+                    currentMarker.remove();
+                }
+
                 for (Location location : locationResult.getLocations()) {
                     // Update the user's current location on the map
                     LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
 
-                    googleMap.addMarker(new MarkerOptions()
+                    // Add the new marker
+                    currentMarker = googleMap.addMarker(new MarkerOptions()
                             .position(userLocation)
                             .icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_user_marker, 30)));
 
-
+                    // Optionally, move the camera to the new location
+//                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
                 }
             }
+
         };
 
         populateRelativeList();

@@ -2,7 +2,9 @@ package com.example.soulscrypt.Constant;
 
 public class API {
 
-    public static String URL = "https://soulscrypt.cloud/";
+//    public static String URL = "https://soulscrypt.cloud/";
+    public static String URL = "http://192.168.8.69:8000/";
+
     public static String API = URL + "api/";
 
     // Auth and Profiles
@@ -30,6 +32,8 @@ public class API {
 
     public static String fetch_sections = API + "mobile/show/sections";
     public static String submit_incident_report = API + "mobile/submit/incidents";
+
+    public static String live_location = API + "mobile/user/live_location";
 
 
 }
