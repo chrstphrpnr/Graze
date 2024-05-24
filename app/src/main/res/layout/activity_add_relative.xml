@@ -99,6 +99,41 @@
                 android:textSize="@dimen/_10sdp"
                 />
 
+            <TextView
+                android:id="@+id/relativeRelationshipTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Relationship"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:textColor="#494949"
+                android:layout_below="@+id/autoCompleteTextView"
+                android:layout_marginTop="@dimen/_10sdp"
+                />
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutTextRelationshipTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relativeRelationshipTitle"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:boxStrokeWidth="1dp"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtInputIncidentTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Relationship"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <TextView
                 android:id="@+id/relativeDateOfDeathTitle"
@@ -108,7 +143,7 @@
                 android:textSize="@dimen/_15sdp"
                 android:textStyle="bold"
                 android:textColor="#494949"
-                android:layout_below="@+id/autoCompleteTextView"
+                android:layout_below="@+id/layoutTextRelationshipTitle"
                 android:layout_marginTop="@dimen/_20sdp"
                 />
 

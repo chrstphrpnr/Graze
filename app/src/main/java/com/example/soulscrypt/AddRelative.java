@@ -27,6 +27,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.soulscrypt.Constant.API;
 import com.example.soulscrypt.RelativeList.RelativeDetails;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,6 +46,10 @@ import java.util.Map;
 public class AddRelative extends AppCompatActivity {
 
     private AutoCompleteTextView autoCompleteTextView;
+
+    private TextInputLayout layoutTextRelationshipTitle;
+    private TextInputEditText edtInputIncidentTitle;
+
     private RequestQueue requestQueue;
     private TextView relativeDateOfDeathTv;
 
@@ -65,6 +71,8 @@ public class AddRelative extends AppCompatActivity {
         btnSubmitRelative = findViewById(R.id.btnSubmitRelative);
         btnAddRelativeBack = findViewById(R.id.btnAddRelativeBack);
 
+        layoutTextRelationshipTitle = findViewById(R.id.layoutTextRelationshipTitle);
+        edtInputIncidentTitle = findViewById(R.id.edtInputIncidentTitle);
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -153,10 +161,26 @@ public class AddRelative extends AppCompatActivity {
         btnSubmitRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitAddRelative();
+                if(validate()){
+                    submitAddRelative();
+                }
             }
         });
     }
+
+    private boolean validate(){
+
+        String relationship = edtInputIncidentTitle.getText().toString();
+
+        if(relationship.isEmpty()){
+            layoutTextRelationshipTitle.setErrorEnabled(true);
+            layoutTextRelationshipTitle.setError("Relationship is Required");
+            return false;
+        }
+
+        return true;
+    }
+
 
     private String formatDate(String date) {
         try {
@@ -171,6 +195,8 @@ public class AddRelative extends AppCompatActivity {
     }
 
     public void submitAddRelative(){
+        String relationship = edtInputIncidentTitle.getText().toString();
+
         StringRequest request = new StringRequest(Request.Method.POST, API.submit_add_relatives, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -199,6 +225,8 @@ public class AddRelative extends AppCompatActivity {
                 HashMap<String, String> map = new HashMap<>();
                 map.put("user_id", user_primary_id);
                 map.put("record_id", record_id);
+                map.put("relationship", relationship);
+
 
                 return map;
             }
