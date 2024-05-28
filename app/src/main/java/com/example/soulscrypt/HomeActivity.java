@@ -98,6 +98,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private ImageView btnSettings, btnNotification, btnReport, btnOpenAR;
     private Marker currentMarker = null;
+    private Marker userMarker = null;
 
      RelativeLayout btnAddRelatives;
 
@@ -150,8 +151,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
 
                 // Remove the previous marker
-                if (currentMarker != null) {
-                    currentMarker.remove();
+                if (userMarker != null) {
+                    userMarker.remove();
                 }
 
                 for (Location location : locationResult.getLocations()) {
@@ -159,7 +160,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
                     LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
 
                     // Add the new marker
-                    currentMarker = googleMap.addMarker(new MarkerOptions()
+                    userMarker = googleMap.addMarker(new MarkerOptions()
                             .position(userLocation)
                             .icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_user_marker, 30)));
 
@@ -350,27 +351,38 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         relativeAdapter = new RelativeAdapter(this, relativeModelArrayList);
         relativeAdapter.setOnItemClickListener(new RelativeAdapter.OnItemClickListener() {
+
             @Override
             public void onItemClick(double latitude, double longitude) {
-                // Remove the previous marker if it exists
-                if (currentMarker != null) {
-                    currentMarker.remove();
-                }
-
                 // Move the map camera to the clicked location
                 LatLng location = new LatLng(latitude, longitude);
                 googleMap.setPadding(0, 0, 0, 0);
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 19f));
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 19f), new GoogleMap.CancelableCallback() {
+                    @Override
+                    public void onFinish() {
+                        // Remove the previous marker if it exists
+                        if (currentMarker != null) {
+                            currentMarker.remove();
+                        }
+                        // Add a new marker at the clicked location with the custom marker icon
+                        currentMarker = googleMap.addMarker(new MarkerOptions()
+                                .position(location)
+                                .icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_relative_marker, 60)));
+                    }
 
-                // Add a marker at the clicked location with the custom marker icon
-                currentMarker = googleMap.addMarker(new MarkerOptions()
-                        .position(location)
-                        .icon(bitmapDescriptorFromVector(getApplicationContext(), R.drawable.ic_relative_marker, 60)));
+                    @Override
+                    public void onCancel() {
+                        // Handle cancellation if needed
+                    }
+                });
 
+                // Update the bottom sheet state
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-
             }
+
+
         });
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         relativeListView.setLayoutManager(layoutManager);
         relativeListView.setAdapter(relativeAdapter);
